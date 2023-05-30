@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_144140) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_104935) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_144140) do
     t.string "comment"
     t.bigint "user_id", null: false
     t.bigint "car_id", null: false
+    t.date "start_date"
+    t.date "end_date"
     t.index ["car_id"], name: "index_bookings_on_car_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -30,8 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_144140) do
     t.string "title"
     t.string "description"
     t.float "price"
-    t.date "start_date"
-    t.date "end_date"
     t.string "make"
     t.string "model"
     t.boolean "accomodation"
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_144140) do
     t.integer "seats"
     t.integer "consumption"
     t.bigint "user_id", null: false
+    t.boolean "available"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
