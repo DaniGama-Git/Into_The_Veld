@@ -1,7 +1,3 @@
 <h1>Booking</h1>
 
-<%= form_with model: @booking do |f| %>
-  <%= f.text_field :comment %>
-  <%= f.submit %>
-<% end %>
-
+<%= render partial: 'form', locals: { booking: @booking } %>

@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @bookings = Booking.where(status: 'new')
+  end
 end
