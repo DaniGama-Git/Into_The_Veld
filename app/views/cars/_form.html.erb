@@ -1,0 +1,22 @@
+<%= simple_form_for(@car) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :make %>
+    <%= f.input :model %>
+    <%= f.input :accomodation %>
+    <%= f.input :cooking %>
+    <%= f.input :seats %>
+    <%= f.input :consumption %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

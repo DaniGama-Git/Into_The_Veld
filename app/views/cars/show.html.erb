@@ -1,0 +1,16 @@
+<h1><%= @car.title %></h1>
+<%# <ul>
+<li>
+<%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
+<%# </li>
+</ul> %>
+
+<div>
+<% if policy(@car).edit? %>
+  <%= link_to "Edit this listing", edit_car_path(@car) %>
+  <% end %> |
+  <%= link_to "Back to car listings", cars_path %>
+<% if policy(@car).destroy? %>
+  <%= button_to "Destroy this listing", @car, method: :delete %>
+  <% end %>
+</div>
