@@ -1,0 +1,8 @@
+<div id="Car Listings">
+  <% @cars.each do |car| %>
+    <%= render car %>
+    <p>
+      <%= link_to "Show this car", car %>
+    </p>
+  <% end %>
+</div>
