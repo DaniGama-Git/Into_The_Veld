@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: url(<%= asset_path("grass.jpg") %>);">
+  <div class="container">
+    <h1><strong>Into The Wild</strong></h1>
+    <p>Drive anywhere, anytime</p>
+  </div>
+</div>
+
+<div class ="cards">
+  <% @cars.each do |car| %>
+    <div>
+      <div class="card-category" style="width: 30rem; background-image: url(<%= asset_path("off_road.jpg") %>);">
+            <%=car.title %>
+      </div>
+      <div>
+            <p><%=car.make %></p>
+            <p><%=car.model%></p>
+            <p><%=car.consumption%></p>
+            <p><%=car.price%></p>
+      </div>
+    </div>
+  <% end %>
+</div>
