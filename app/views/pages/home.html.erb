@@ -8,16 +8,17 @@
 <div class ="cards">
   <% @cars.each do |car| %>
     <div>
-    <img src="https://images.wsj.net/im-266812/?width=700&height=467" width=400px alt="..."/>
-            <h2><%=car.title %></h2>
-    <%# <% if car.photos.attached? %>
-      <%# <div <%= cl_image_tag (car.photos.first.key) %>
-            <%# <%=car.title %>
-      <%# </div> %>
-    <%# <% else %>
-      <%# <%=car.title %>
-    <%# <% end %>
+      <% if car.photos.attached? %>
+        <div>
+          <%= cl_image_tag (car.photos.first.key), width: 400, height: 300, crop: :fill %>
+        </div>
+      <% else %>
+        <div>
+          <img src="https://images.wsj.net/im-266812/?width=700&height=467" width=400px height=300px alt="..."/>
+        </div>
+      <% end %>
       <div>
+            <h2><%=car.title %></h2>
             <p><%=car.make %></p>
             <p><%=car.model%></p>
             <p><%=car.consumption%></p>
