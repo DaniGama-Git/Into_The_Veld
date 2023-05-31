@@ -1,29 +1,35 @@
-
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+ <div class="card-trip">
+  <img src= "https://bdc2020.o0bc.com/wp-content/uploads/2018/05/2018-land-rover-discovery-svx-is-a-supercharged-v8-powered-off-road-warrior-120348_1.jpg"/>
   <div class="card-trip-infos">
-    <div>
-      <h1><%= @car.title %></h1>
-      <h1><%= @car.description %></h1>
-      <h1><%= @car.make%></h1>
-      <h1><%= @car.model %></h1>
-      <h1><%= @car.accomodation %></h1>
-      <h1><%= @car.cooking %></h1>
-      <h1><%= @car.seats %></h1>
-      <h1><%= @car.consumption %></h1>
-      <h1><%= @car.available %></h1>
 
+     <div>
+      <h1><%= @car.title %></h1>
+      <p><%= @car.description %></p>
+      <p><strong>Company:</strong> <%= @car.make%></p>
+      <p><strong>Model:</strong> <%= @car.model %></p>
+       <%= simple_form_for(@car) do |f| %>
+    <div class="form-inputs">
+      <p><%= f.input :accomodation %></p>
+      <p><%= f.input :cooking %></p>
+      <p><%= f.input :seats %></p>
+      <p><%= f.input :consumption %></p>
+    <% end %>
     </div>
-    <h2 class="card-trip-pricing"> <%= @car.price %></h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    </div>
+    <h2 class="card-trip-pricing"><%= @car.price %>R</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="card-trip-user avatar-bordered" />
   </div>
 </div>
+
+
+
+
 
 <%# <ul>
 <li>
 <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
 <%# </li>
-</ul> %> 
+</ul> %>
 
 <div>
 <% if policy(@car).edit? %>
@@ -33,4 +39,5 @@
 <% if policy(@car).destroy? %>
   <%= button_to "Destroy this listing", @car, method: :delete %>
   <% end %>
+  <%= link_to "Make a booking", new_car_booking_path(@car) %>
 </div>
