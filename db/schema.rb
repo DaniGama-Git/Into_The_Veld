@@ -48,6 +48,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_154733) do
     t.string "comment"
     t.bigint "user_id", null: false
     t.bigint "car_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
     t.index ["car_id"], name: "index_bookings_on_car_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -58,8 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_154733) do
     t.string "title"
     t.string "description"
     t.float "price"
-    t.date "start_date"
-    t.date "end_date"
     t.string "make"
     t.string "model"
     t.boolean "accomodation"
@@ -67,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_154733) do
     t.integer "seats"
     t.integer "consumption"
     t.bigint "user_id", null: false
+    t.boolean "available"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 

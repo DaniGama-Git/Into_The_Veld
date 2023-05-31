@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def home
     @cars = Car.all
   end
+
+  def dashboard
+    @bookings = Booking.where(status: 'new')
+  end
 end
