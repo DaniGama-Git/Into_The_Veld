@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
 Car.destroy_all
 User.destroy_all
 
@@ -20,3 +21,6 @@ Car.create(title: 'Wilderness Voyager', description: 'Embark on unforgettable wi
 Car.create(title: 'All-Terrain Explorer', description: 'Discover the world in style and comfort with this versatile 4x4.', price: 6899.99, available: true, make: 'Mercedes-Benz', model: 'G-Class', accomodation: true, cooking: true, seats: 5, consumption: 16, user_id: User.all.sample.id)
 Car.create(title: 'Rock Crawler', description: 'Take on the most challenging rock formations with this capable off-roader.', price: 5999.99, available: true, make: 'Chevrolet', model: 'Colorado ZR2', accomodation: false, cooking: false, seats: 4, consumption: 22, user_id: User.all.sample.id)
 Car.create(title: 'Adrenaline Rush', description: 'Experience the thrill of speed and adventure with this adrenaline-inducing 4x4.', price: 7899.99, available: true, make: 'Porsche', model: 'Cayenne Turbo S', accomodation: false, cooking: false, seats: 5, consumption: 19, user_id: User.all.sample.id)
+# Attaching photos to cars
+file_1 = URI.open("https://bdc2020.o0bc.com/wp-content/uploads/2018/05/2018-land-rover-discovery-svx-is-a-supercharged-v8-powered-off-road-warrior-120348_1.jpg")
+car_1.photo.attach(io: file_1, filename: "car_1.jpg", content_type: "image/jpg")
