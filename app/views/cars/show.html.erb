@@ -1,7 +1,7 @@
 
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
+ <div class=“card-trip”>
+  <img src=“https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg” />
+  <div class=“card-trip-infos”>
     <div>
       <h1><%= @car.title %></h1>
       <h1><%= @car.description %></h1>
@@ -12,18 +12,19 @@
       <h1><%= @car.seats %></h1>
       <h1><%= @car.consumption %></h1>
       <h1><%= @car.available %></h1>
-
     </div>
-    <h2 class="card-trip-pricing"> <%= @car.price %></h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <h2 class=“card-trip-pricing”> <%= @car.price %></h2>
+    <img src=“https://kitt.lewagon.com/placeholder/users/krokrob” class=“card-trip-user avatar-bordered” />
   </div>
 </div>
+
+
 
 <%# <ul>
 <li>
 <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
 <%# </li>
-</ul> %> 
+</ul> %>
 
 <div>
 <% if policy(@car).edit? %>
