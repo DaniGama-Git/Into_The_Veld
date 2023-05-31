@@ -1,32 +1,52 @@
-<div class="banner" style="background-image: url(<%= asset_path("grass.jpg") %>);">
+<div class="banner" style="background-image: url(<%= asset_path("dark_outside") %>);">
   <div class="container">
-    <h1><strong>Into The Wild</strong></h1>
-    <p>Drive anywhere, anytime</p>
+    <h1><strong>Back to</strong></h1>
+     <h1><strong>nature.</strong></h1>
+    <p>Back to your routes. Back home.</p>
   </div>
 </div>
 
-<div class ="cards">
-  <% @cars.each do |car| %>
-    <div>
+<div class="cards">
+  <% @cars.each_with_index do |car, index| %>
+    <%= link_to car_path(car), class: "card" do %>
       <% if car.photos.attached? %>
-        <div>
-          <%= cl_image_tag (car.photos.first.key), width: 400, height: 300, crop: :fill %>
+        <div class="card-category">
+
+          <div id="carouselExampleControls-<%= index %>" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%= cl_image_tag(car.photos.first.key, width: 400, height: 300, crop: :fill, class: "d-block w-100") %>
+              </div>
+              <% car.photos.drop(1).each do |photo| %>
+                <div class="carousel-item">
+                  <%= cl_image_tag(photo.key, width: 400, height: 300, crop: :fill, class: "d-block w-100") %>
+                </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= index %>" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= index %>" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <h2 class="card-title"><%= car.title %></h2>
         </div>
       <% else %>
-        <div>
-          <img src="https://images.wsj.net/im-266812/?width=700&height=467" width=400px height=300px alt="..."/>
+        <div class="card-category">
+          <img src="https://images.wsj.net/im-266812/?width=700&height=467" width="400px" height="300px" alt="..." />
+          <h2 class="card-title"><%= car.title %></h2>
         </div>
       <% end %>
-      <div>
-            <h2><%=car.title %></h2>
-            <p><%=car.make %></p>
-            <p><%=car.model%></p>
-            <p><%=car.consumption%></p>
-            <p><%=car.price%></p>
-             <%= link_to car_path(car) do %>
-                <%= "view offer" %>
-                <% end %>
+      <div class="card-content">
+        <p><strong>Make:</strong> <%= car.make %></p>
+        <p><strong>Model:</strong> <%= car.model %></p>
+        <p><%= car.consumption %>/l</p>
+        <p>R<%= car.price %></p>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
