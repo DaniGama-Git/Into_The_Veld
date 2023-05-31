@@ -23,5 +23,7 @@ car_6 = Car.create(title: 'Rock Crawler', description: 'Take on the most challen
 car_7 = Car.create(title: 'Adrenaline Rush', description: 'Experience the thrill of speed and adventure with this adrenaline-inducing 4x4.', price: 7899.99, available: true, make: 'Porsche', model: 'Cayenne Turbo S', accomodation: false, cooking: false, seats: 5, consumption: 19, user_id: User.all.sample.id)
 # Attaching photos to cars
 
-file_1 = URI.open("https://bdc2020.o0bc.com/wp-content/uploads/2018/05/2018-land-rover-discovery-svx-is-a-supercharged-v8-powered-off-road-warrior-120348_1.jpg")
-car_1.photo.attach(io: file_1, filename: "car_1.jpg", content_type: "image/jpg")
+# file_1 = URI.open("https://imageio.forbes.com/blogs-images/johnmccormick/files/2016/09/firsteditionexteriorfront2-resize-1024x619.jpg?format=jpg&width=1200")
+# car_1.photos.attach(io: file_1, filename: "car_1.jpg", content_type: "image/jpg")
+# file_2 = URI.open("https://res.cloudinary.com/dp3xfbod8/image/upload/v1685528059/development/ffcg630t82nmymtu28hwip9nswg6.jpg")
+# car_2.photos.attach(io: file_2, filename: "car_1.jpg", content_type: "image/jpg")
