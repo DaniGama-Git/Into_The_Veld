@@ -1,9 +1,11 @@
 <h1>New Bookings</h1>
+<ul>
 <% @bookings.each do |booking| %>
-  <p>Booking ID: <%= booking.id %></p>
-  <p>Name: <%= booking.user.name %> <%= booking.user.surname %></p>
-  <p>Start Date: <%= booking.start_date %></p>
-  <p>End Date: <%= booking.end %></p>
-  <p>Comment: <%= booking.comment %></p>
+  <li>Name: <%= booking.user.name %> <%= booking.user.surname %></li>
+  <li>Start Date: <%= booking.start_date %></li>
+  <li>End Date: <%= booking.end_date %></li>
+  <li>Comment: <%= booking.comment %></li>
+  <li>Price: <%= booking.car.price * (booking.end_date - booking.start_date) %></li>
   <hr>
 <% end %>
+</ul>
