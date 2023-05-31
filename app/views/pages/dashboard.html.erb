@@ -1,0 +1,9 @@
+<h1>New Bookings</h1>
+<% @bookings.each do |booking| %>
+  <p>Booking ID: <%= booking.id %></p>
+  <p>Name: <%= booking.user.name %> <%= booking.user.surname %></p>
+  <p>Start Date: <%= booking.start_date %></p>
+  <p>End Date: <%= booking.end %></p>
+  <p>Comment: <%= booking.comment %></p>
+  <hr>
+<% end %>
