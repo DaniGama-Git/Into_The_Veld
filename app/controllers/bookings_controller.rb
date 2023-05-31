@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @car = Car.find(params[:car_id])
+    authorize @booking
   end
 
   def create
@@ -11,10 +12,14 @@ class BookingsController < ApplicationController
     @booking.car = @car
     @booking.save
     redirect_to booking_path(@booking)
+    authorize @booking
   end
 
   def show
     @booking = Booking.find(params[:id])
+    days = @booking.end_date - @booking.start_date
+    @booking_price = days * @booking.car.price
+    authorize @booking
   end
 
   private

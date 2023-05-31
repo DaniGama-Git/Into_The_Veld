@@ -1,3 +1,7 @@
-<h1>Booking</h1>
+<h1>You are booking: <%= @car.title %></h1>
 
 <%= render partial: 'form', locals: { booking: @booking } %>
+
+<div>
+ <%= link_to "Home", root_path %>
+</div>
