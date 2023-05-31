@@ -1,4 +1,10 @@
-<h1>You are booking: <%= @car.title %></h1>
+<div class="banner" style="background-image: url(<%= asset_path("grass.jpg") %>);">
+  <div class="container">
+    <h1><strong>Your journey's</strong></h1>
+     <h1><strong>just begun.</strong></h1>
+    <p>You are booking: <%= @car.title %></p>
+  </div>
+</div>
 
 <%= render partial: 'form', locals: { booking: @booking } %>
 
