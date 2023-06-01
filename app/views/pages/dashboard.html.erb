@@ -1,11 +1,62 @@
-<h1>New Bookings</h1>
-<ul>
-<% @bookings.each do |booking| %>
-  <li>Name: <%= booking.user.name %> <%= booking.user.surname %></li>
-  <li>Start Date: <%= booking.start_date %></li>
-  <li>End Date: <%= booking.end_date %></li>
-  <li>Comment: <%= booking.comment %></li>
-  <li>Price: <%= booking.car.price * (booking.end_date - booking.start_date) %></li>
-  <hr>
-<% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1430965914765-930206c18c13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80);">
+  <div class="container">
+    <h1>Your Bookings</h1>
+    <p></p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h2>Listings</h2>
+        <ul>
+            <% @cars.each do |car| %>
+              <%= link_to car_path(car) do %>
+                <div class="card-product m-3">
+                  <%= cl_image_tag(car.photos.first.key, width: 400, height: 300, crop: :fill, class: "d-block w-50") %>
+                    <div class="card-product-infos m-5">
+                      <li>Name: <%= car.make %></li>
+                      <li>Name: <%= car.model %></li>
+                      <li>Price: <%= car.price %></li>
+                    </div>
+                </div>
+              <% end %>
+            <% end %>
+        </div>
+        <div class="col-sm">
+          <h2>My Bookings</h2>
+            <ul>
+              <% @bookings.each do |booking| %>
+                  <div class="card-product m-3">
+                      <%= cl_image_tag(booking.car.photos.first.key, width: 400, height: 300, crop: :fill, class: "d-block w-50") %>
+                    <div class="card-product-infos m-5">
+                      <li>Name: <%= booking.user.name %> <%= booking.user.surname %></li>
+                      <li>Start: <%= booking.start_date %></li>
+                      <li>End: <%= booking.end_date %></li>
+                      <li>Price: <%= booking.car.price * (booking.end_date - booking.start_date) %></li>
+                      <li>Status: <%= booking.status %></li>
+                  </div>
+                <%= link_to "Edit booking", booking_path(booking), class: "btn btn-ghost m-2" %>
+              </div>
+          <% end %>
+        </ul>
+    </div>
+    <div class="col-sm">
+      <h2>Rentals</h2>
+        <ul>
+          <% @my_car_rentals.each do |booking| %>
+            <div class="card-product m-3">
+              <%= cl_image_tag(booking.car.photos.first.key, width: 200, height: 300, crop: :fill, class: "d-block w-50") %>
+              <div class="card-product-infos m-5">
+                <li>Name: <%= booking.user.name %> <%= booking.user.surname %></li>
+                <li>Start: <%= booking.start_date %></li>
+                <li>End: <%= booking.end_date %></li>
+                <li>Price: <%= booking.car.price * (booking.end_date - booking.start_date) %></li>
+                <li>Status: <%= booking.status %></li>
+              </div>
+              <%= link_to "Edit booking", booking_path(booking), class: "btn btn-ghost m-2" %>
+            </div>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</div>
