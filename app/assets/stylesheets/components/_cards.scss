@@ -2,26 +2,77 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 40px;
   padding: 40px 20px;
+}
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  width: 300px;
+  color: white;
+  font-size: 24px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .card-category {
-  background-size: cover;
-  background-position: center;
-  height: 180px;
+  position: relative;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.card-category img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.card-content {
+  flex-grow: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 24px;
+  padding: 20px;
+  align-items: left;
+  text-align: left;
+}
+
+.card-price {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 18px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 10px;
+}
+.card-content p {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 8px;
+  color: rgb(23, 18, 18);
+  text-align: left;
+  align-items: left;
 }
 
 .card-product {

@@ -22,9 +22,6 @@
 </div>
 
 
-
-
-
 <%# <ul>
 <li>
 <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
@@ -34,7 +31,7 @@
 <div>
 <% if policy(@car).edit? %>
   <%= link_to "Edit this listing", edit_car_path(@car) %>
-  <% end %>  
+  <% end %>
   <%= link_to "Back to car listings", cars_path %>
 <% if policy(@car).destroy? %>
   <%= button_to "Destroy this listing", @car, method: :delete %>
