@@ -34,7 +34,7 @@
 <div>
 <% if policy(@car).edit? %>
   <%= link_to "Edit this listing", edit_car_path(@car) %>
-  <% end %> |
+  <% end %>  
   <%= link_to "Back to car listings", cars_path %>
 <% if policy(@car).destroy? %>
   <%= button_to "Destroy this listing", @car, method: :delete %>
