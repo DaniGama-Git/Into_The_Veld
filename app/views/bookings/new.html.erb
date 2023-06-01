@@ -1,13 +1,14 @@
-<div class="banner" style="background-image: url(<%= asset_path("grass.jpg") %>);">
+<div class="banner d-flex align-items-center" style="background-image: url(<%= asset_path("dark_perfect.jpeg") %>);">
   <div class="container">
     <h1><strong>Your journey's</strong></h1>
      <h1><strong>just begun.</strong></h1>
     <p>You are booking: <%= @car.title %></p>
   </div>
+<div class="container">
+  <div class="mx-4">
+   <div class="form-wrapper text-white">
+      <%= render partial: 'form', locals: { booking: @booking } %>
+    </div>
+  </div>
 </div>
-
-<%= render partial: 'form', locals: { booking: @booking } %>
-
-<div>
- <%= link_to "Home", root_path %>
 </div>

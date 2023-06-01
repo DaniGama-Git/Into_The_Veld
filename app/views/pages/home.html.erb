@@ -1,39 +1,40 @@
 <div class="banner" style="background-image: url(<%= asset_path("dark_outside") %>);">
   <div class="container">
     <h1><strong>Back to</strong></h1>
-     <h1><strong>nature.</strong></h1>
+    <h1><strong>nature.</strong></h1>
     <p>Back to your routes. Back home.</p>
   </div>
 </div>
 
 <div class="cards">
   <% @cars.each_with_index do |car, index| %>
-    <%= link_to car_path(car), class: "card" do %>
+    <%= link_to car_path(car), class: "card-homepage" do %>
       <% if car.photos.attached? %>
         <div class="card-category">
 
-          <div id="carouselExampleControls-<%= index %>" class="carousel slide" data-bs-ride="carousel">
+          <div id="carouselExampleFade-<%= index %>" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
+                <h2 class="card-title"><%= car.title %></h2>
                 <%= cl_image_tag(car.photos.first.key, width: 400, height: 300, crop: :fill, class: "d-block w-100") %>
               </div>
               <% car.photos.drop(1).each do |photo| %>
                 <div class="carousel-item">
+                <h2 class="card-title"><%= car.title %></h2>
                   <%= cl_image_tag(photo.key, width: 400, height: 300, crop: :fill, class: "d-block w-100") %>
                 </div>
               <% end %>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= index %>" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade-<%= index %>" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= index %>" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade-<%= index %>" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
 
-          <h2 class="card-title"><%= car.title %></h2>
         </div>
       <% else %>
         <div class="card-category">
@@ -44,8 +45,10 @@
       <div class="card-content">
         <p><strong>Make:</strong> <%= car.make %></p>
         <p><strong>Model:</strong> <%= car.model %></p>
-        <p><%= car.consumption %>/l</p>
-        <p>R<%= car.price %></p>
+        <div class = "card-bottom ">
+          <p><%=car.consumption %> L/100km</p>
+          <p>R <%= car.price.round %></p>
+          </div>
       </div>
     <% end %>
   <% end %>
