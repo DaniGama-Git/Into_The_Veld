@@ -6,19 +6,19 @@
   padding: 40px 20px;
 }
 
-.card {
+.card-homepage {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 340px;
   width: 300px;
   color: white;
   font-size: 24px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -27,7 +27,7 @@
   height: 300px;
   width: 100%;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .card-category img {
@@ -53,10 +53,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
-  align-items: left;
-  text-align: left;
+  align-items: start;
+  padding: 10px;
+  width: 100%;
+
 }
 
 .card-price {
@@ -71,8 +71,6 @@
   font-weight: normal;
   margin-bottom: 8px;
   color: rgb(23, 18, 18);
-  text-align: left;
-  align-items: left;
 }
 
 .card-product {
@@ -181,4 +179,26 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.booking-container {
+width: 400px;
+height:400px;
+display: flex;
+
+flex-direction: column;
+justify-content: center;
+border: white 1px solid;
+color: white;
+padding: 10px;
+border-radius: 4px;
+}
+
+.booking-container p {
+  font-size: 18px;
+}
+
+.card-bottom {
+display: flex;
+justify-content: space-between;
 }

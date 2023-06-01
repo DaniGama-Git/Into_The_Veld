@@ -1,10 +1,9 @@
-<h2>Here is your booking</h2>
-<p>Name: <%= @booking.user.name %> <%= @booking.user.surname %></p>
-<p>Comment: <%= @booking.comment %></p>
-<p>Start Date: <%= @booking.start_date %></p>
-<p>End Date: <%= @booking.end_date %></p>
-<p>Price: <%= @booking_price %></p>
-
-<div>
- <%= link_to "Home", root_path %>
+<div class="banner d-flex align-items-center justify-content-between" style="background-image: url(<%= asset_path("dark_autumn.jpeg") %>);">
+  <h1><strong>YOU'RE BOOKED!</strong></h1>
+  <div class="booking-container">
+    <p><strong>Name:</strong>       <%= @booking.user.name %> <%= @booking.user.surname %></p>
+    <p><strong>Comment:</strong>    <%= @booking.comment %></p>
+    <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
+    <p><strong>End Date:</strong>   <%= @booking.end_date %></p>
+    <p><strong>Price:</strong>      <%= @booking_price %></p>
 </div>
