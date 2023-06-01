@@ -6,6 +6,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @bookings = Booking.where(status: 'new')
+    @bookings = Booking.where(user: current_user)
+    @cars = Car.where(user: current_user)
+    @my_car_rentals = Booking.all.select{ |booking| booking.car.user == current_user }
   end
 end

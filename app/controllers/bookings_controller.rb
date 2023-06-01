@@ -7,12 +7,29 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.user = current_user
     @car = Car.find(params[:car_id])
     @booking.car = @car
-    @booking.save
-    redirect_to booking_path(@booking)
+    if @booking.save
+      redirect_to @booking, notice: "#Booking has been successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
     authorize @booking
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to @booking, notice: "Booking has been successfully updated."
+    else
+      redirect_to @booking, notice: "Booking has not been updated."
+    end
   end
 
   def show
@@ -25,6 +42,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:comment, :start_date, :end_date)
+    params.require(:booking).permit(:comment, :start_date, :end_date, :status)
   end
 end

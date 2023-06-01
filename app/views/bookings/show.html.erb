@@ -6,4 +6,25 @@
     <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
     <p><strong>End Date:</strong>   <%= @booking.end_date %></p>
     <p><strong>Price:</strong>      <%= @booking_price %></p>
+
+<% if @booking.car.user == current_user %>
+  <%= simple_form_for [@booking] do |f| %>
+    <div class="form-inputs">
+      <%= f.input :status,
+      collection: [['Accept', 'accepted'], ['Decline', 'declined'], ['Pending', 'pending']],
+      as: :radio_buttons %>
+    </div>
+    <div class="form-actions">
+    <%= f.button :submit %>
+    </div>
+  <% end %>
+<% else %>
+<p>Status: <%= @booking.status %></p>
+  <% end %>
+    </div>
+<div>
+ <%= link_to "Home", root_path, class: "btn btn-ghost m-2" %>
+</div>
+<div>
+ <%= link_to "Dashboard", dashboard_path, class: "btn btn-ghost m-2" %>
 </div>
