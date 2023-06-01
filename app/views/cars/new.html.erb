@@ -1,9 +1,7 @@
-<h1>New listing</h1>
+<div class="banner d-flex align-items-center" style="background-image: url(<%= asset_path("dark_landscape.jpeg") %>);">
+  <div class="container text-white" >
+    <h1>New listing</h1>
 
-<%= render "form", car: @car%>
-
-<br>
-
-<div>
-  <%= link_to "Back to car listings", cars_path %>
+      <%= render "form", car: @car%>
+    </div>
 </div>

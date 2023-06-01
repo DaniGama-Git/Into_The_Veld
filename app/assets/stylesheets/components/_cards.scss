@@ -147,12 +147,14 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 400px;
+  border-radius: 10px;
 }
 
 .card-trip > img {
   height: 200px;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .card-trip h2 {
@@ -169,9 +171,9 @@
 
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-end;
   position: relative;
 }
@@ -180,5 +182,18 @@
   position: absolute;
   right: 16px;
   top: -20px;
-  width: 40px;
+  width: 100px;
+}
+
+.card-category-show {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.card-trip-pricing {
+  display: flex;
+  align-items: inline;
+  padding-left: 100px;
 }
