@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 Booking.destroy_all
 Car.destroy_all
@@ -21,7 +14,7 @@ car_3 = Car.create(title: 'Mountain Explorer', description: 'Experience the thri
 car_4 = Car.create(title: 'Wilderness Voyager', description: 'Embark on unforgettable wilderness adventures with this rugged vehicle.', price: 7200, available: true, make: 'Ford', model: 'F-150 Raptor', accomodation: true, cooking: true, seats: 4, consumption: 14, user_id: User.all.sample.id)
 car_5 = Car.create(title: 'All-Terrain Explorer', description: 'Discover the world in style and comfort with this versatile 4x4.', price: 6100, available: true, make: 'Mercedes-Benz', model: 'G-Class', accomodation: true, cooking: true, seats: 5, consumption: 16, user_id: User.all.sample.id)
 car_6 = Car.create(title: 'Rock Crawler', description: 'Take on the most challenging rock formations with this capable off-roader.', price: 5000, available: true, make: 'Land Rover', model: 'Defender', accomodation: true, cooking: true, seats: 4, consumption: 22, user_id: User.all.sample.id)
-car_7 = Car.create(title: 'Home', description: 'Experience the thrill of speed and adventure with this adrenaline-inducing 4x4.', price: 7200, available: true, make: 'Landrover', model: 'Defender', accomodation: true, cooking: false, seats: 7, consumption: 19, user_id: User.all.sample.id)
+car_7 = Car.create(title: 'Home', description: 'Experience the thrill of speed and adventure with this adrenaline-inducing 4x4.', price: 7200, available: true, make: 'Land Rover', model: 'Defender', accomodation: true, cooking: false, seats: 7, consumption: 19, user_id: User.all.sample.id)
 
 # Attaching photos to cars
 
