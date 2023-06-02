@@ -249,6 +249,10 @@ display: flex;
 justify-content: space-between;
 }
 
+.show-container {
+  display:flex;
+  justify-content: center;
+}
 
 .card-category a:hover {
   color: white;
