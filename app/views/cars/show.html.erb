@@ -1,53 +1,31 @@
-<div class="show-container">
- <div class="card-trip">
-      <% if @car.photos.attached? %>
-        <div class="card-category-show">
-
-          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <%= cl_image_tag(@car.photos.first.key, width: 400, height: 300, crop: :fill, class: "d-block w-100") %>
-              </div>
-              <% @car.photos.drop(1).each do |photo| %>
-                <div class="carousel-item">
-                  <%= cl_image_tag(photo.key, width: 400, height: 300, crop: :fill, class: "d-block w-100") %>
-                </div>
-              <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        <% end %>
-  <div class="card-trip-infos">
-
-     <div>
-      <h1><%= @car.title %></h1>
-      <p><%= @car.description %></p>
+<div class=" container ">
+  <h1 class="show-title"><%= @car.title %></h1>
+  <h2 class="show-h2"><%= @car.description %></h2>
+  <div class="images-container ">
+    <% @car.photos.each do |photo|%>
+    <%= cl_image_tag(photo.key, width: 400, height: 300, crop: :fill) %>
+    <% end %>
+  </div>
+  <div class="info-container">
+    <div class="description-container">
       <p><strong>Make:</strong> <%= @car.make%></p>
       <p><strong>Model:</strong> <%= @car.model %></p>
       <% if @car.accomodation %>
-       <p> 🏠 </p>
+        <p><i class="fa-solid fa-house"></i> Has accomodation</p>
       <% end %>
       <% if @car.cooking %>
-      <p><i class="fa-solid fa-kitchen-set"></i></p>
+        <p><i class="fa-solid fa-kitchen-set"></i> Includes cooking equipment</p>
       <% end %>
       <p><strong>Seats:</strong> <%= @car.seats %></p>
       <p><strong>Consumption:</strong> <%= @car.consumption %> L/100km</p>
-
-
+      <p><strong>R</strong> <%= @car.price.round %>/per day</p>
     </div>
-    <h2 class="card-trip-pricing">R<%= @car.price %>/perday</h2>
-  </div>
-</div>
 
-  <div class="card-trip-infos">
-    <%= link_to "Back to car listings", root_path, class: "btn btn-ghost" %>
-    <%= link_to "Make a booking", new_car_booking_path(@car), class:"btn btn-ghost" %>
+    <div class="booking-container">
+      <div class="form-wrapper">
+      <%= render partial: 'form_booking', locals: { car: @car, booking: @booking} %>
+    </div>
+    </div>
   </div>
+
 </div>
