@@ -23,3 +23,28 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+.dashboard-banner {
+  height: 100px;
+  background-size: cover;
+  background-position: top;
+  padding: 230px 50px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.dashboard-banner h1 {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 64px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.dashboard-banner p {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}

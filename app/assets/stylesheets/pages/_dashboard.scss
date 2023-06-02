@@ -1,0 +1,80 @@
+ul {
+  list-style-type: none;
+}
+
+.row-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listings {
+  padding: 0px 200px;
+}
+
+.listing {
+  display: flex;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  box-shadow: 3px 3px 5px rgb(229, 229, 229);
+}
+
+.listing-image {
+  width: 500px;
+  height: 300px;
+
+  img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px 0px 0px 12px;
+  }
+}
+
+.listing-info {
+  width: 100%;
+  margin-left: 20px;
+}
+
+.listing-detail {
+  background-color: rgb(238, 238, 238);
+  border-radius: 4px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 2px;
+  color: black;
+  p {
+    margin: 0px;
+    font-size: 12px;
+  }
+}
+
+.booking-user-details {
+  p {
+    margin: 0px;
+    font-size: 12px;
+  }
+}
+
+.tab-main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bookings-section {
+  padding: 0px 200px;
+}
+
+.booking-details {
+  padding: 20px;
+  p {
+    margin: 0px;
+    font-size: 18px;
+    padding: 10px;
+    font-family: $body-font;
+  }
+}

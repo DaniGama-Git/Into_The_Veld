@@ -47,6 +47,18 @@
   font-size: 26px;
   letter-spacing: 2px;
   text-shadow: 2px 2px 2px black;
+
+}
+
+.dashboard-card {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 1.5rem;
+  height: 300px;
+
 }
 
 .card-content {
@@ -110,7 +122,9 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  color: black;
   align-items: center;
+
 }
 
 .card-product img {
@@ -314,4 +328,17 @@ justify-content: space-between;
 
 .show-h2 {
   padding: 0px 40px
+}
+
+.show-container {
+  display:flex;
+  justify-content: center;
+}
+
+.card-category a:hover {
+  color: white;
+}
+
+.carousel-inner {
+  color: white;
 }

@@ -1,3 +1,4 @@
+
 <div class="banner" style="background-image: url(https://res.cloudinary.com/dp3xfbod8/image/upload/v1685716063/dark_outside_aihevy.jpg)">
   <div class="container">
     <h1><strong>Back to</strong></h1>
@@ -18,13 +19,10 @@
 </div>
 
 <div class="cards ">
-
-
   <% @cars.each_with_index do |car, index| %>
     <%= link_to car_path(car), class: "card-homepage text-decoration-none" do %>
       <% if car.photos.attached? %>
         <div class="card-category">
-
           <div id="carouselExampleFade-<%= index %>" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
