@@ -23,6 +23,11 @@ file_1 = URI.open("https://mrfeelgood.com/wp-content/uploads/2022/08/1993-Range-
 car_1.photos.attach(io: file_1, filename: "car_1.jpg", content_type: "image/jpg")
 file_2 = URI.open("https://i.pinimg.com/originals/67/a0/cf/67a0cfdc2524f78ad56683bc74ece23e.jpg")
 car_1.photos.attach(io: file_2, filename: "car_1.jpg", content_type: "image/jpg")
+file_extra_3 = URI.open("https://images.squarespace-cdn.com/content/v1/5ed036734850aa0dc9245649/1594085290115-YX2ZCFK4OAE65DQ1Q7Q3/DSC05724.jpg")
+car_1.photos.attach(io: file_extra_3, filename: "car_1.jpg", content_type: "image/jpg")
+
+
+
 
 # Attaching photos to car_2
 file_3 = URI.open("https://img-ik.cars.co.za/news-site-za/images/2021/01/IMG_20200913_101623.jpg")

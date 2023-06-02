@@ -1,8 +1,20 @@
-<div class="banner" style="background-image: url(<%= asset_path("dark_landscape") %>);">
+
+<div class="banner" style="background-image: url(https://res.cloudinary.com/dp3xfbod8/image/upload/v1685716063/dark_outside_aihevy.jpg)">
   <div class="container">
     <h1><strong>Back to</strong></h1>
     <h1><strong>nature.</strong></h1>
     <p>Back to your routes. Back home.</p>
+    <!--ADDING THE SEARCH FUNCTION -->
+  <div class="search-bar">
+    <%= form_with url: root_path, method: :get do %>
+      <%= text_field_tag :query,
+            params[:query],
+            placeholder: "Make or model"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-ghost-dark my-2 my-sm-0" %>
+    <% end %>
+  </div>
+  <!-- [...] -->
   </div>
 </div>
 

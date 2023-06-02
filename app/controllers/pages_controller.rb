@@ -3,6 +3,9 @@ class PagesController < ApplicationController
 
   def home
     @cars = Car.all
+    if params[:query].present?
+      @cars = Car.search_by_make_and_model(params[:query])
+    end
   end
 
   def dashboard
