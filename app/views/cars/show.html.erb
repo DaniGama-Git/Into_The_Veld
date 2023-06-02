@@ -3,7 +3,7 @@
   <h2 class="show-h2"><%= @car.description %></h2>
   <div class="images-container ">
     <% @car.photos.each do |photo|%>
-    <%= cl_image_tag(photo.key, width: 400, height: 300, crop: :fill) %>
+    <%=cl_image_tag(photo.key, width: 400, height: 300, crop: :fill) %>
     <% end %>
   </div>
   <div class="info-container">
