@@ -3,10 +3,23 @@
     <h1><strong>Back to</strong></h1>
     <h1><strong>nature.</strong></h1>
     <p>Back to your routes. Back home.</p>
+    <!--ADDING THE SEARCH FUNCTION -->
+  <div class="search-bar">
+    <%= form_with url: root_path, method: :get do %>
+      <%= text_field_tag :query,
+            params[:query],
+            placeholder: "Make or model"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-ghost-dark my-2 my-sm-0" %>
+    <% end %>
+  </div>
+  <!-- [...] -->
   </div>
 </div>
 
 <div class="cards ">
+
+
   <% @cars.each_with_index do |car, index| %>
     <%= link_to car_path(car), class: "card-homepage text-decoration-none" do %>
       <% if car.photos.attached? %>
