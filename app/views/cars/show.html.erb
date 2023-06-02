@@ -1,3 +1,4 @@
+<div class="show-container">
  <div class="card-trip">
       <% if @car.photos.attached? %>
         <div class="card-category-show">
@@ -34,18 +35,19 @@
        <p> 🏠 </p>
       <% end %>
       <% if @car.cooking %>
-      <p> 🍳 </p>
+      <p><i class="fa-solid fa-kitchen-set"></i></p>
       <% end %>
       <p><strong>Seats:</strong> <%= @car.seats %></p>
       <p><strong>Consumption:</strong> <%= @car.consumption %> L/100km</p>
 
 
     </div>
-    <h2 class="card-trip-pricing">Car Pricing: R<%= @car.price %></h2>
+    <h2 class="card-trip-pricing">R<%= @car.price %>/perday</h2>
   </div>
 </div>
 
-<div class="card-trip-infos">
-  <%= link_to "Back to car listings", root_path, class: "btn btn-ghost" %>
-  <%= link_to "Make a booking", new_car_booking_path(@car), class:"btn btn-ghost" %>
+  <div class="card-trip-infos">
+    <%= link_to "Back to car listings", root_path, class: "btn btn-ghost" %>
+    <%= link_to "Make a booking", new_car_booking_path(@car), class:"btn btn-ghost" %>
+  </div>
 </div>
