@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: url(<%= asset_path("dark_outside") %>);">
+<div class="banner" style="background-image: url(<%= asset_path("dark_landscape") %>);">
   <div class="container">
     <h1><strong>Back to</strong></h1>
     <h1><strong>nature.</strong></h1>
@@ -6,16 +6,15 @@
   </div>
 </div>
 
-<div class="cards">
+<div class="cards ">
   <% @cars.each_with_index do |car, index| %>
-    <%= link_to car_path(car), class: "card-homepage" do %>
+    <%= link_to car_path(car), class: "card-homepage text-decoration-none" do %>
       <% if car.photos.attached? %>
         <div class="card-category">
-
           <div id="carouselExampleFade-<%= index %>" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <h2 class="card-title"><%= car.title %></h2>
+                <h2 class="card-title text-decoration-none"><%= car.title %></h2>
                 <%= cl_image_tag(car.photos.first.key, width: 400, height: 300, crop: :fill, class: "d-block w-100") %>
               </div>
               <% car.photos.drop(1).each do |photo| %>
@@ -43,12 +42,17 @@
         </div>
       <% end %>
       <div class="card-content">
-        <p><strong>Make:</strong> <%= car.make %></p>
-        <p><strong>Model:</strong> <%= car.model %></p>
-        <div class = "card-bottom ">
-          <p><%=car.consumption %> L/100km</p>
-          <p>R <%= car.price.round %></p>
+        <div class="card-content-left">
+          <div class="car-make-model">
+            <p><i class="fa-solid fa-car"></i><strong></strong> <%= car.make %></p>
+            <p><strong><i class="fa-solid fa-gear"></i></strong> <%= car.model %></p>
           </div>
+          <p><i class="fa-solid fa-gas-pump"></i> <%=car.consumption %> L/100km</p>
+        </div>
+        <div class="card-content-right">
+          <i class="fa-solid fa-heart"></i>
+          <p>R <%= car.price.round %></p>
+        </div>
       </div>
     <% end %>
   <% end %>

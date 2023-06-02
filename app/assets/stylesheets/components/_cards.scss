@@ -13,7 +13,6 @@
   justify-content: flex-start;
   background-size: cover;
   background-position: center;
-  height: 340px;
   width: 300px;
   color: white;
   font-size: 24px;
@@ -24,7 +23,6 @@
 
 .card-category {
   position: relative;
-  height: 300px;
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
@@ -44,18 +42,60 @@
   margin: 0;
   padding: 0px;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  // background-color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
+  font-size: 26px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.dashboard-card {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 1.5rem;
+  height: 300px;
 }
 
 .card-content {
-  flex-grow: 1;
+  display: flex;
+  width: 100%;
+  height: 100px;
+}
+
+.card-content-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: start;
+  justify-content: space-between;
+  align-items: flex-start;
   padding: 10px;
-  width: 100%;
+  width: 70%;
+  height: 100%
+
+}
+.card-content-left p {
+  font-size: 16px;
+}
+
+
+.car-make-model {
+
+
+  p {
+    margin: 0px;
+  }
+}
+
+.card-content-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px;
+  width: 30%;
+  height: 100%;
 
 }
 
@@ -67,10 +107,11 @@
   font-weight: bold;
 }
 .card-content p {
-  font-size: 16px;
-  font-weight: normal;
-  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
   color: rgb(23, 18, 18);
+  margin: 0px;
 }
 
 .card-product {
@@ -79,7 +120,9 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  color: black;
   align-items: center;
+
 }
 
 .card-product img {
@@ -216,4 +259,17 @@ border-radius: 4px;
 .card-bottom {
 display: flex;
 justify-content: space-between;
+}
+
+.show-container {
+  display:flex;
+  justify-content: center;
+}
+
+.card-category a:hover {
+  color: white;
+}
+
+.carousel-inner {
+  color: white;
 }

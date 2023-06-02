@@ -1,62 +1,105 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1430965914765-930206c18c13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80);">
-  <div class="container">
-    <h1>Your Bookings</h1>
-    <p></p>
+<ul class="nav nav-tabs tab-main" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="my-listings-tab" data-bs-toggle="tab" data-bs-target="#my-listings" type="button" role="tab" aria-controls="my-listings" aria-selected="true">My Listings</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="my-bookings-tab" data-bs-toggle="tab" data-bs-target="#my-bookings" type="button" role="tab" aria-controls="my-bookings" aria-selected="false">My Bookings</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="my-listings" role="tabpanel" aria-labelledby="my-listings-tab">
+    <div class="listings">
+      <% @cars.each do |car| %>
+        <div class="listing">
+          <div class="listing-image">
+                <%= cl_image_tag(car.photos.first.key, crop: :fill) %>
+            <div class="listing-status">
+            </div>
+          </div>
+          <div class="listing-info">
+            <ul class="nav nav-tabs tab-main" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests" type="button" role="tab" aria-controls="requests" aria-selected="true">requests</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="upcoming-tab" data-bs-toggle="tab" data-bs-target="#upcoming" type="button" role="tab" aria-controls="upcoming" aria-selected="false">upcoming</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">history</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="requests" role="tabpanel" aria-labelledby="requests-tab">
+                <div class="listing-details">
+                  <% car.bookings.each do |request| %>
+                    <% if request.status == "pending" %>
+                      <%= link_to booking_path(request) do %>
+                        <div class="listing-detail">
+                          <div class="booking-user-details">
+                            <p><%= request.user.name %></p>
+                            <p><strong>From</strong> <%= request.start_date.strftime("%B %d") %> <strong>to</strong> <%= request.end_date.strftime("%B %d") %></p>
+                          </div>
+                          <p>Price: <%= (request.end_date - request.start_date) * car.price %></p>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
+                <div class="listing-details">
+                  <% car.bookings.each do |request| %>
+                    <% if request.status == "accepted" && request.start_date > Date.today %>
+                      <%= link_to booking_path(request) do %>
+                        <div class="listing-detail">
+                          <div class="booking-user-details">
+                            <p><%= request.user.name %></p>
+                            <p><strong>From</strong> <%= request.start_date.strftime("%B %d") %> <strong>to</strong> <%= request.end_date.strftime("%B %d") %></p>
+                          </div>
+                          <p>Price: <%= (request.end_date - request.start_date) * car.price %></p>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                <div class="listing-details">
+                  <% car.bookings.each do |request| %>
+                    <% if request.status == "accepted" && request.end_date < Date.today %>
+                    <div class="listing-detail">
+                      <div class="booking-user-details">
+                        <p><%= request.user.name %></p>
+                        <p><strong>From</strong> <%= request.start_date.strftime("%B %d") %> <strong>to</strong> <%= request.end_date.strftime("%B %d") %></p>
+                      </div>
+                      <p>Price: <%= (request.end_date - request.start_date) * car.price %></p>
+                    </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <h2>Listings</h2>
-        <ul>
-            <% @cars.each do |car| %>
-              <%= link_to car_path(car) do %>
-                <div class="card-product m-3">
-                  <%= cl_image_tag(car.photos.first.key, width: 400, height: 300, crop: :fill, class: "d-block w-50") %>
-                    <div class="card-product-infos m-5">
-                      <li>Name: <%= car.make %></li>
-                      <li>Name: <%= car.model %></li>
-                      <li>Price: <%= car.price %></li>
-                    </div>
-                </div>
-              <% end %>
-            <% end %>
+<div class="tab-pane fade" id="my-bookings" role="tabpanel" aria-labelledby="my-bookings-tab">
+  <div class="bookings-section">
+    <% @bookings.each do |booking| %>
+      <div class="listing">
+        <div class="listing-image">
+          <%= cl_image_tag(booking.car.photos.first.key) %>
         </div>
-        <div class="col-sm">
-          <h2>My Bookings</h2>
-            <ul>
-              <% @bookings.each do |booking| %>
-                  <div class="card-product m-3">
-                      <%= cl_image_tag(booking.car.photos.first.key, width: 400, height: 300, crop: :fill, class: "d-block w-50") %>
-                    <div class="card-product-infos m-5">
-                      <li>Name: <%= booking.user.name %> <%= booking.user.surname %></li>
-                      <li>Start: <%= booking.start_date %></li>
-                      <li>End: <%= booking.end_date %></li>
-                      <li>Price: <%= booking.car.price * (booking.end_date - booking.start_date) %></li>
-                      <li>Status: <%= booking.status %></li>
-                  </div>
-                <%= link_to "Edit booking", booking_path(booking), class: "btn btn-ghost m-2" %>
-              </div>
-          <% end %>
-        </ul>
-    </div>
-    <div class="col-sm">
-      <h2>Rentals</h2>
-        <ul>
-          <% @my_car_rentals.each do |booking| %>
-            <div class="card-product m-3">
-              <%= cl_image_tag(booking.car.photos.first.key, width: 200, height: 300, crop: :fill, class: "d-block w-50") %>
-              <div class="card-product-infos m-5">
-                <li>Name: <%= booking.user.name %> <%= booking.user.surname %></li>
-                <li>Start: <%= booking.start_date %></li>
-                <li>End: <%= booking.end_date %></li>
-                <li>Price: <%= booking.car.price * (booking.end_date - booking.start_date) %></li>
-                <li>Status: <%= booking.status %></li>
-              </div>
-              <%= link_to "Edit booking", booking_path(booking), class: "btn btn-ghost m-2" %>
-            </div>
-          <% end %>
-        </ul>
+        <div class="booking-details">
+          <h3>You have booked <strong><%= booking.car.user.name %> <%= booking.car.user.surname %>'s</strong> car</h3>
+          <p><strong>Pick up</strong> the vehicle on <%= booking.start_date.strftime("%B %d") %></p>
+          <p><strong>Drop off</strong> the vehicle on <%= booking.end_date.strftime("%B %d") %></p>
+          <p><strong>Total price</strong> for your trip <strong>R</strong> <%= (booking.car.price * (booking.end_date - booking.start_date)).round %></p>
+          <p><strong>Booking status:</strong> <%= booking.status %></p>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
